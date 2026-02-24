@@ -1,6 +1,8 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const webpack = require('webpack');
+require('dotenv').config();
 
 module.exports = {
   entry: './src/index.js',
@@ -47,6 +49,9 @@ module.exports = {
         { from: 'appinfo.json', to: 'appinfo.json' },
         { from: 'assets', to: 'assets', noErrorOnMissing: true },
       ],
+    }),
+    new webpack.DefinePlugin({
+      'process.env.API_URL': JSON.stringify(process.env.API_URL || 'https://ott-admin.moreplex.com/api/moreplex/v1'),
     }),
   ],
   devServer: {

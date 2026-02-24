@@ -39,11 +39,15 @@ export const AuthProvider = ({ children }) => {
     try {
       const userData = await apiGetUser(authToken);
       setUser(userData);
+      setLoading(false);
     } catch (error) {
       console.error('Failed to fetch user:', error);
-      logout();
-    } finally {
+      // Don't logout on network errors, just stop loading
       setLoading(false);
+      // Only logout on auth errors (401)
+      if (error.response?.status === 401) {
+        logout();
+      }
     }
   };
 
