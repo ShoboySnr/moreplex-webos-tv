@@ -1,0 +1,40 @@
+{
+  "name": "moreplex-webos",
+  "version": "1.0.0",
+  "description": "Moreplex Streaming Platform for LG webOS Smart TVs",
+  "main": "src/index.js",
+  "scripts": {
+    "dev": "webpack serve --mode development --open",
+    "build": "webpack --mode production",
+    "package": "npm run build && ares-package dist/ --outdir ./build",
+    "install-tv": "npm run package && ares-install --device my-tv ./build/*.ipk",
+    "launch-tv": "ares-launch --device my-tv com.moreplex.tv",
+    "debug": "ares-inspect --device my-tv --app com.moreplex.tv --open"
+  },
+  "keywords": ["webos", "lg", "smart-tv", "streaming", "moreplex"],
+  "author": "Moreplex",
+  "license": "MIT",
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.20.0",
+    "video.js": "^8.6.1",
+    "videojs-contrib-quality-levels": "^4.0.0",
+    "videojs-http-source-selector": "^1.1.6",
+    "axios": "^1.6.2",
+    "js-cookie": "^3.0.5"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.23.5",
+    "@babel/preset-env": "^7.23.5",
+    "@babel/preset-react": "^7.23.3",
+    "babel-loader": "^9.1.3",
+    "css-loader": "^6.8.1",
+    "style-loader": "^3.3.3",
+    "html-webpack-plugin": "^5.5.4",
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1",
+    "copy-webpack-plugin": "^11.0.0"
+  }
+}

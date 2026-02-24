@@ -1,0 +1,34 @@
+{
+  "id": "com.moreplex.tv",
+  "version": "1.0.0",
+  "vendor": "Moreplex",
+  "type": "web",
+  "main": "index.html",
+  "title": "Moreplex TV",
+  "icon": "assets/icon.png",
+  "largeIcon": "assets/largeIcon.png",
+  "splashBackground": "assets/splash.png",
+  "bgImage": "assets/bg.png",
+  "bgColor": "#000000",
+  "iconColor": "#E50914",
+  "resolution": "1920x1080",
+  "transparent": false,
+  "disableBackHistoryAPI": false,
+  "requiredPermissions": [
+    "time.query",
+    "activity.operation",
+    "media.operation",
+    "audio.operation"
+  ],
+  "supportedLocales": [
+    "en-US",
+    "fr-FR",
+    "es-ES",
+    "pt-BR",
+    "ar-SA",
+    "ha-NG",
+    "ig-NG",
+    "yo-NG",
+    "sw-KE"
+  ]
+}
