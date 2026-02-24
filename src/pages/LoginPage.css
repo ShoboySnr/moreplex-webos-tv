@@ -1,75 +1,196 @@
 .login-page {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Background with image and overlay */
+.login-background {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.90), rgba(0, 0, 0, 0.95));
+}
+
+.login-background-overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/assets/bg.png');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.3;
+}
+
+/* Content container */
+.login-content {
+  position: relative;
+  z-index: 10;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
-  background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+  width: 100%;
+  height: 100%;
+  padding: 54px 96px;
+  gap: 40px;
 }
 
-.login-container {
-  width: 600px;
-  padding: 60px;
-  background: rgba(0, 0, 0, 0.8);
-  border-radius: 12px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
-}
-
+/* Logo - Outside login card */
 .login-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 0.3s ease-in;
+}
+
+.login-logo img {
+  max-width: 250px;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Login card */
+.login-card {
+  width: 100%;
+  max-width: 650px;
+  background: #030c1f;
+  padding: 60px 80px;
+  border-radius: 12px;
+  animation: fadeIn 0.3s ease-in 0.1s;
+  animation-fill-mode: both;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.login-title {
+  font-size: 48px;
+  font-weight: 400;
   text-align: center;
   margin-bottom: 40px;
+  color: var(--text-primary);
 }
 
-.login-logo h1 {
-  font-size: 56px;
-  color: var(--primary-color);
-  letter-spacing: 3px;
-}
-
-.login-form h2 {
-  text-align: center;
-  margin-bottom: 30px;
-  font-size: 36px;
+/* Form */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 }
 
 .form-group {
-  margin-bottom: 24px;
+  position: relative;
 }
 
 .form-input {
   width: 100%;
-  padding: 16px 20px;
+  padding: 18px 24px;
   font-size: 24px;
-  background: rgba(255, 255, 255, 0.1);
-  border: 2px solid rgba(255, 255, 255, 0.2);
+  background: transparent;
+  border: 2px solid #4a5568;
   border-radius: 8px;
-  color: var(--text-primary);
+  color: #9ca3af;
   outline: none;
-  transition: all 0.2s ease;
-}
-
-.form-input:focus {
-  border-color: var(--focus-border);
-  background: rgba(255, 255, 255, 0.15);
+  transition: all 0.3s ease;
 }
 
 .form-input::placeholder {
-  color: var(--text-secondary);
+  color: #6b7280;
 }
 
+.form-input:focus {
+  border-color: #6b7280;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+/* Password input with toggle */
+.password-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-input-wrapper .form-input {
+  padding-right: 70px;
+}
+
+.password-toggle {
+  position: absolute;
+  right: 24px;
+  background: transparent;
+  border: none;
+  color: #9ca3af;
+  cursor: pointer;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+.password-toggle:hover,
+.password-toggle:focus {
+  color: #d1d5db;
+  transform: scale(1.1);
+}
+
+/* Checkbox */
+.form-group-checkbox {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  color: var(--text-primary);
+  font-size: 22px;
+  padding: 8px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.checkbox-label:focus {
+  outline: 3px solid var(--focus-border);
+  outline-offset: 4px;
+}
+
+.checkbox-label input[type="checkbox"] {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  accent-color: var(--primary-color);
+}
+
+.checkbox-text {
+  user-select: none;
+}
+
+/* Error message */
 .error-message {
-  padding: 16px;
-  margin-bottom: 20px;
+  padding: 18px;
   background: rgba(229, 9, 20, 0.2);
   border: 2px solid var(--primary-color);
   border-radius: 8px;
   color: var(--text-primary);
-  font-size: 20px;
+  font-size: 22px;
   text-align: center;
 }
 
+/* Submit button */
 .login-form .btn {
   width: 100%;
-  margin-top: 20px;
+  margin-top: 12px;
   font-size: 28px;
-  padding: 20px;
+  padding: 22px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
 }
