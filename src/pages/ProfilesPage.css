@@ -1,0 +1,76 @@
+.profiles-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+}
+
+.profiles-container {
+  text-align: center;
+  padding: 60px;
+}
+
+.profiles-container h1 {
+  font-size: 56px;
+  margin-bottom: 60px;
+}
+
+.profiles-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.profile-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  background: transparent;
+  border: 3px solid transparent;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.profile-card:hover,
+.profile-card:focus {
+  border-color: var(--focus-border);
+  transform: scale(1.1);
+}
+
+.profile-avatar {
+  width: 180px;
+  height: 180px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.profile-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-icon {
+  font-size: 80px;
+}
+
+.profile-name {
+  font-size: 28px;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.profile-card:hover .profile-name,
+.profile-card:focus .profile-name {
+  color: var(--text-primary);
+}

@@ -1,0 +1,15 @@
+.home-page {
+  padding-top: 120px;
+  min-height: 100vh;
+}
+
+.page-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.movie-rows {
+  padding: 40px 0;
+}

@@ -1,0 +1,8 @@
+.movies-page {
+  padding-top: 120px;
+  min-height: 100vh;
+}
+
+.movies-page h1 {
+  margin-bottom: 40px;
+}
